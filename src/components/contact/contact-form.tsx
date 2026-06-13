@@ -18,20 +18,23 @@ export default function ContactForm() {
 
     try {
       // توجه: کلمه ajax به آدرس اضافه شده است
-      const response = await fetch("https://formsubmit.co/ajax/ai@magnora.tech", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
+      const response = await fetch(
+        "https://formsubmit.co/ajax/ai@magnora.tech",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
         },
-      });
+      );
 
       if (response.ok) {
         setStatus("success");
         form.reset(); // فرم رو بعد از ارسال موفق خالی می‌کنه
-        
+
         // پیام موفقیت بعد از 5 ثانیه غیب میشه
-        setTimeout(() => setStatus(""), 5000); 
+        setTimeout(() => setStatus(""), 5000);
       } else {
         setStatus("error");
       }
@@ -53,16 +56,20 @@ export default function ContactForm() {
               data-delay="0.2"
               className="font-inter-tight text-tagline-2 text-background-13/60 mx-auto max-w-[300px] font-normal"
             >
-              Fill out the form below, and a member of our team will be in touch shortly.
+              Fill out the form below, and a member of our team will be in touch
+              shortly.
             </p>
           </div>
 
           <div className="flex flex-col items-center justify-center gap-y-10 rounded-xl bg-white p-4 md:rounded-3xl md:p-8 lg:flex-row lg:gap-x-14 lg:gap-y-0">
-            
             {/* اضافه شدن هندلر onSubmit به فرم و حذف action */}
-            <form onSubmit={handleSubmit} className="w-full space-y-6">
+            <form
+              action="https://formsubmit.co/ai@magnora.tech"
+              method="POST"
+              className="w-full space-y-6"
+            >
+              {" "}
               <input type="hidden" name="_captcha" value="false" />
-
               <div>
                 <fieldset className="mb-6 space-y-2">
                   <label
@@ -134,10 +141,12 @@ export default function ContactForm() {
 
                 <div className="inline-block flex-col space-y-3">
                   {/* تغییر متن دکمه در زمان ارسال */}
-                  <PrimarySubmitButton 
-                    buttonText={status === "sending" ? "Sending..." : "Submit request"} 
+                  <PrimarySubmitButton
+                    buttonText={
+                      status === "sending" ? "Sending..." : "Submit request"
+                    }
                   />
-                  
+
                   {/* پیام‌های وضعیت */}
                   {status === "success" && (
                     <p className="text-sm font-medium text-green-600">
@@ -152,16 +161,16 @@ export default function ContactForm() {
                 </div>
               </div>
             </form>
-            
+
             <div className="h-[330px] w-full rounded-2xl md:h-[563px]">
               <figure className="relative size-full overflow-hidden rounded-2xl">
-                    <Image
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                src="/images/opai-img-27 (1).webp"
-                alt="contact-form-img"
-                className="size-full object-cover"
-                loading="eager"
+                <Image
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  src="/images/opai-img-27 (1).webp"
+                  alt="contact-form-img"
+                  className="size-full object-cover"
+                  loading="eager"
                 />
               </figure>
             </div>
