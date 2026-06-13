@@ -5,6 +5,7 @@ import { Header } from "@/components/header/header";
 import { Footer } from "@/components/footer/footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Magnora - AI ",
@@ -44,6 +45,15 @@ export default function RootLayout({
             }
 
             return event;
+          }}
+        />
+        <SpeedInsights
+          beforeSend={(data) => {
+            const hostname = window.location.hostname;
+            if (hostname.includes("-git-") || hostname.includes("localhost")) {
+              return null;
+            }
+            return data;
           }}
         />
       </body>
