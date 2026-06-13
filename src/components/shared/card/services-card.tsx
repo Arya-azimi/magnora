@@ -4,14 +4,18 @@ interface ServicesCardProps {
   title: string;
   description: string;
   icon: string;
-  delay?: number; // اضافه شدن دیلی به صورت اختیاری
+  delay?: number;
 }
 
-export default function ServicesCard({ title, description, icon, delay = 0.2 }: ServicesCardProps) {
-  const titleId = `title-${title.replace(/\s+/g, '-').toLowerCase()}`;
+export default function ServicesCard({
+  title,
+  description,
+  icon,
+  delay = 0.2,
+}: ServicesCardProps) {
+  const titleId = `title-${title.replace(/\s+/g, "-").toLowerCase()}`;
 
   return (
-    // حالا دیلی انیمیشن کاملاً با ترتیبی که از دیتابیس می‌آید هماهنگ است
     <ScaleIn delay={delay}>
       <article
         className="group flex h-full min-h-[300px] flex-col items-start justify-between rounded-3xl bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] lg:min-h-[370px] xl:p-14"

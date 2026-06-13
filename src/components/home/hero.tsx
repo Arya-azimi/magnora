@@ -136,7 +136,6 @@ export default function Hero() {
                   Dev team
                 </h2>
                 <div className="space-y-6 flex flex-row-reverse justify-between">
-                  {/* avatar group  */}
                   <div className="flex items-center justify-end -space-x-3">
                     <figure className="size-9 overflow-hidden rounded-md ring-1 ring-white xl:size-11">
                       <img
@@ -155,6 +154,7 @@ export default function Hero() {
 
                     <div
                       className="flex size-9 rotate-270 items-center justify-center overflow-hidden rounded-md bg-(image:--color-gradient-5) ring-1 ring-white xl:size-11"
+                      role="img"
                       aria-label="Additional team members"
                     >
                       <svg
@@ -181,7 +181,6 @@ export default function Hero() {
                     </div>
                   </div>
 
-                  {/* text  */}
                   <div className="flex items-end justify-between">
                     <div className="text-left">
                       <p className="font-inter-tight text-tagline-2 text-background-3 font-normal">
