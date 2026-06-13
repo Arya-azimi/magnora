@@ -2,7 +2,6 @@ import Link from "next/link";
 import HoverBgTransform from "@/components/shared/hover-bg-transform";
 import {
   FaqIcon,
-  GlossaryIcon,
   SupportIcon,
   ContactIcon,
   SuccessIcon,

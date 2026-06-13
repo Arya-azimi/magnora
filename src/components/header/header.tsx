@@ -77,7 +77,6 @@ export function Header({ className = "" }: HeaderProps) {
         </div>
 
         <div className="block xl:hidden">
-          {/* ۲. اضافه کردن onClick به دکمه همبرگر برای باز کردن منو با تغییر استیت */}
           <button
             onClick={() => setIsMenuOpen(true)}
             className="nav-hamburger bg-background-4 flex size-12 cursor-pointer flex-col items-center justify-center gap-[5px] rounded-full"
@@ -90,7 +89,6 @@ export function Header({ className = "" }: HeaderProps) {
         </div>
       </div>
 
-      {/* ۳. پاس دادن استیت و تابع بستن به کامپوننت سایدبار */}
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </header>
   );
