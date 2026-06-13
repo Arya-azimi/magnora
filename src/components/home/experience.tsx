@@ -17,51 +17,50 @@ export default function Experience() {
           {/* content  */}
           <div className="space-y-3">
             <TextReveal delay={0.2}>
-                <h2
-              className="font-sora text-sora-heading-4 md:text-sora-heading-3 lg:text-sora-heading-2 text-background-13/90 mx-auto text-center font-normal"
-            >
-              Experience AI in action
-            </h2>
+              <h2 className="font-sora text-sora-heading-4 md:text-sora-heading-3 lg:text-sora-heading-2 text-background-13/90 mx-auto text-center font-normal">
+                Experience AI in action
+              </h2>
             </TextReveal>
             <TextReveal delay={0.4}>
               <p
-              id="experience-description"
-              className="font-inter-tight text-tagline-2 text-background-13/60 mx-auto text-center font-normal"
-              aria-describedby="experience-heading"
-            >
-              See how we've delivered measurable success to our clients.
-            </p>
+                id="experience-description"
+                className="font-inter-tight text-tagline-2 text-background-13/60 mx-auto text-center font-normal"
+                aria-describedby="experience-heading"
+              >
+                See how we've delivered measurable success to our clients.
+              </p>
             </TextReveal>
           </div>
 
           {/* cards + btn */}
-          <div className="space-y-14" role="list" aria-label="AI experience showcase cards">
+          <div
+            className="space-y-14"
+            role="list"
+            aria-label="AI experience showcase cards"
+          >
             {/* card  */}
             <div
               data-delay="0.3"
               className="grid grid-cols-12 items-start gap-4 lg:gap-2"
             >
-              {ExCardInfoes.map((card, index)=>(
+              {ExCardInfoes.map((card, index) => (
                 <ExCard
-                key={index}
-                name={card.Name}
-                imagePath={card.imagePath}
-                className={card.class}
-                bffigcls={card.cardCls}
+                  key={index}
+                  name={card.Name}
+                  imagePath={card.imagePath}
+                  className={card.class}
+                  bffigcls={card.cardCls}
                 />
               ))}
             </div>
 
-            <div
-            
-              className="text-center"
-              aria-label="Call to action"
-            >
+            <div className="text-center" aria-label="Call to action">
               <LinkPrimary
-                    button-text="Try a live demo"
-                    href="/contact"
-                    aria-label="Try a live demo of our AI solutions" buttonText={"Contact Us"}
-                />
+                button-text="Try a live demo"
+                href=""
+                aria-label="Try a live demo of our AI solutions"
+                buttonText={"Contact Us"}
+              />
             </div>
           </div>
         </div>
