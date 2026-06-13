@@ -4,8 +4,7 @@ import "./styles/main.css";
 import { Header } from "@/components/header/header";
 import { Footer } from "@/components/footer/footer";
 import SmoothScroll from "@/components/SmoothScroll";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import VercelProviders from "@/components/VercelProviders";
 
 export const metadata: Metadata = {
   title: "Magnora - AI ",
@@ -23,39 +22,7 @@ export default function RootLayout({
         <Header />
         <SmoothScroll>{children}</SmoothScroll>
         <Footer />
-        <Analytics
-          beforeSend={(event) => {
-            const hostname = window.location.hostname;
-
-            if (hostname.includes("-git-") || hostname.includes("localhost")) {
-              return null;
-            }
-
-            const url = new URL(event.url);
-            if (
-              url.searchParams.has("fbclid") ||
-              url.searchParams.has("gclid")
-            ) {
-              url.searchParams.delete("fbclid");
-              url.searchParams.delete("gclid");
-              return {
-                ...event,
-                url: url.toString(),
-              };
-            }
-
-            return event;
-          }}
-        />
-        <SpeedInsights
-          beforeSend={(data) => {
-            const hostname = window.location.hostname;
-            if (hostname.includes("-git-") || hostname.includes("localhost")) {
-              return null;
-            }
-            return data;
-          }}
-        />
+        <VercelProviders />
       </body>
     </html>
   );
