@@ -71,7 +71,7 @@ export default function ResourcesMenu() {
         </li>
         <li>
           <Link
-            href="/ "
+            href="/contact"
             className="group relative flex items-center gap-2 rounded-[10px] p-3"
           >
             <HoverBgTransform />
