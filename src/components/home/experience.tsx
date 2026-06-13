@@ -57,7 +57,7 @@ export default function Experience() {
             <div className="text-center" aria-label="Call to action">
               <LinkPrimary
                 button-text="Try a live demo"
-                href=""
+                href="/contact"
                 aria-label="Try a live demo of our AI solutions"
                 buttonText={"Contact Us"}
               />
