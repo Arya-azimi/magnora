@@ -1,4 +1,4 @@
-// فایل موقت فقط برای فریب دادن بیلد اول ورسل
+import { sql } from "@vercel/postgres";
 
 interface ExecuteQueryArgs {
   query: string;
@@ -9,8 +9,16 @@ export async function executeQuery<T>({
   query,
   values = [],
 }: ExecuteQueryArgs): Promise<T> {
-  console.log("Bypassing database during build...");
+  try {
+    let pgQuery = query;
+    values.forEach((_, index) => {
+      pgQuery = pgQuery.replace("?", `$${index + 1}`);
+    });
 
-  // یک آرایه خالی برمی‌گردانیم تا روت‌های داینامیک موقع بیلد کرش نکنند
-  return [] as unknown as T;
+    const { rows } = await sql.query(pgQuery, values);
+    return rows as unknown as T;
+  } catch (error: any) {
+    console.error("Database Error:", error.message);
+    throw new Error(`Database Error: ${error.message}`);
+  }
 }
