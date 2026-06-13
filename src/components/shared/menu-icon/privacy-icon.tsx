@@ -1,0 +1,13 @@
+import React from 'react'
+
+export const PrivacyIcon = (): React.JSX.Element => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+  <path
+    d="M9.99967 18.3334C9.99967 18.3334 16.6663 15 16.6663 10V4.16669L9.99967 1.66669L3.33301 4.16669V10C3.33301 15 9.99967 18.3334 9.99967 18.3334Z"
+    className="stroke-background-13"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>
+
+)
