@@ -66,7 +66,7 @@ export default function Hero() {
             <div className="relative h-[229px] w-[289px] rounded-3xl bg-white p-11">
               {/* slice one  */}
               <div
-                className="bg-background-3 relative z-10 flex w-full max-w-[200px] rotate-6 items-center justify-around gap-x-4 rounded-xl p-2.5"
+                className="bg-background-3 relative z-10 flex w-full max-w-[200px] rotate-6 items-center gap-x-4 rounded-xl p-2.5"
                 aria-label="Team member card"
               >
                 <figure className="size-11 overflow-hidden rounded-lg">
@@ -95,7 +95,7 @@ export default function Hero() {
 
               {/* slice two */}
               <div
-                className="bg-background-3 absolute bottom-[52px] h-[62px] flex items-center justify-center w-full max-w-[200px] -rotate-8 rounded-xl p-2.5"
+                className="bg-background-3 absolute bottom-[52px] h-[62px] flex items-center w-full max-w-[200px] -rotate-8 rounded-xl p-2.5"
                 aria-hidden="true"
               >
                 <figure className="size-11 overflow-hidden rounded-lg">
