@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ScaleIn from "../animation/ScaleIn";
 import TextReveal from "../animation/TextReveal";
 import LinkPrimary from "../shared/button/link-primary";
@@ -53,8 +52,8 @@ export default function Hero() {
             className="mx-auto md:size-[709px]"
           >
             <ScaleIn delay={0.2}>
-              <Image
-                src="/images/main.webp"
+              <img
+                src="./images/main.webp"
                 alt="AI technology transforming business operations"
                 className="hero-img-animate size-full object-cover"
               />
@@ -71,8 +70,8 @@ export default function Hero() {
                 aria-label="Team member card"
               >
                 <figure className="size-11 overflow-hidden rounded-lg">
-                  <Image
-                    src="/images/members/arya1.webp"
+                  <img
+                    src="./images/members/arya1.webp"
                     alt="Wade Warren, Marketing coordinator"
                     className="size-full object-cover"
                     itemProp="image"
@@ -100,8 +99,8 @@ export default function Hero() {
                 aria-hidden="true"
               >
                 <figure className="size-11 overflow-hidden rounded-lg">
-                  <Image
-                    src="/images/members/ehsan1.webp"
+                  <img
+                    src="./images/members/ehsan1.webp"
                     alt="Wade Warren, Marketing coordinator"
                     className="size-full object-cover"
                     itemProp="image"
@@ -139,15 +138,15 @@ export default function Hero() {
                 <div className="space-y-6 flex flex-row-reverse justify-between">
                   <div className="flex items-center justify-end -space-x-3">
                     <figure className="size-9 overflow-hidden rounded-md ring-1 ring-white xl:size-11">
-                      <Image
-                        src="/images/members/arya1.webp"
+                      <img
+                        src="./images/members/arya1.webp"
                         alt="Development team member"
                         className="size-full object-cover"
                       />
                     </figure>
                     <figure className="size-9 overflow-hidden rounded-md ring-1 ring-white xl:size-11">
-                      <Image
-                        src="/images/members/ehsan1.webp"
+                      <img
+                        src="./images/members/ehsan1.webp"
                         alt="Development team member"
                         className="size-full object-cover"
                       />
@@ -209,8 +208,8 @@ export default function Hero() {
 
           {/* card three  */}
           <figure className="lp:top-[60%] lp:left-[-2%] absolute top-[80%] left-[1%] hidden w-full max-w-[300px] overflow-hidden rounded-3xl md:inline-block lg:top-[60%] xl:max-w-[374px] 2xl:top-[56%] 2xl:left-[-3%]">
-            <Image
-              src="/images/main2.webp"
+            <img
+              src="./images/main2.webp"
               alt="AI technology showcase"
               className="size-full object-cover"
             />

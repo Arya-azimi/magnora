@@ -4,8 +4,6 @@ import Image from "next/image";
 
 import PrimarySubmitButton from "../shared/button/primary-submit-button";
 
-import TextReveal from "../animation/TextReveal";
-
 export default function ContactForm() {
   const [status, setStatus] = useState("");
 
