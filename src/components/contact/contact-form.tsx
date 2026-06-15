@@ -1,28 +1,31 @@
-"use client"; // این خط برای استفاده از جاوااسکریپت در نکست‌جی‌اس ضروریه
-
 import { useState } from "react";
+
 import Image from "next/image";
+
 import PrimarySubmitButton from "../shared/button/primary-submit-button";
+
 import TextReveal from "../animation/TextReveal";
 
 export default function ContactForm() {
-  // برای مدیریت وضعیت ارسال (خالی، در حال ارسال، موفق، خطا)
   const [status, setStatus] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // جلوی رفرش شدن و رفتن به صفحه جدید رو می‌گیره
+    e.preventDefault();
+
     setStatus("sending");
 
     const form = e.currentTarget;
+
     const formData = new FormData(form);
 
     try {
-      // توجه: کلمه ajax به آدرس اضافه شده است
       const response = await fetch(
         "https://formsubmit.co/ajax/ai@magnora.tech",
         {
           method: "POST",
+
           body: formData,
+
           headers: {
             Accept: "application/json",
           },
@@ -31,9 +34,9 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus("success");
-        form.reset(); // فرم رو بعد از ارسال موفق خالی می‌کنه
 
-        // پیام موفقیت بعد از 5 ثانیه غیب میشه
+        form.reset();
+
         setTimeout(() => setStatus(""), 5000);
       } else {
         setStatus("error");
@@ -51,6 +54,7 @@ export default function ContactForm() {
             <h2 className="font-sora text-sora-heading-4 md:text-sora-heading-3 lg:text-sora-heading-2 text-background-13/90 mx-auto max-w-[600px] font-normal">
               Reach out — We’ll get back within 24 hours
             </h2>
+
             <p
               data-text-reveal
               data-delay="0.2"
@@ -62,14 +66,9 @@ export default function ContactForm() {
           </div>
 
           <div className="flex flex-col items-center justify-center gap-y-10 rounded-xl bg-white p-4 md:rounded-3xl md:p-8 lg:flex-row lg:gap-x-14 lg:gap-y-0">
-            {/* اضافه شدن هندلر onSubmit به فرم و حذف action */}
-            <form
-              action="https://formsubmit.co/ai@magnora.tech"
-              method="POST"
-              className="w-full space-y-6"
-            >
-              {" "}
+            <form onSubmit={handleSubmit} className="w-full space-y-6">
               <input type="hidden" name="_captcha" value="false" />
+
               <div>
                 <fieldset className="mb-6 space-y-2">
                   <label
@@ -78,6 +77,7 @@ export default function ContactForm() {
                   >
                     Your name
                   </label>
+
                   <input
                     type="text"
                     id="name"
@@ -96,6 +96,7 @@ export default function ContactForm() {
                   >
                     Your email
                   </label>
+
                   <input
                     type="email"
                     id="email"
@@ -114,6 +115,7 @@ export default function ContactForm() {
                   >
                     Your message
                   </label>
+
                   <textarea
                     id="message"
                     name="message"
@@ -132,7 +134,9 @@ export default function ContactForm() {
                       required
                       aria-label="I accept with the Terms of uses and privacy policy"
                     />
+
                     <span className="border-stroke-3/18 peer-checked:border-background-13/60 after:bg-background-13/50 relative size-5 cursor-pointer rounded-[2px] border after:absolute after:top-1/2 after:left-1/2 after:size-3 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-[2px] after:opacity-0 peer-checked:after:opacity-100"></span>
+
                     <span className="text-tagline-3 text-background-13/60 peer-checked:text-background-13/90 font-medium select-none">
                       I accept with the Terms of uses and privacy policy
                     </span>
@@ -140,19 +144,18 @@ export default function ContactForm() {
                 </fieldset>
 
                 <div className="inline-block flex-col space-y-3">
-                  {/* تغییر متن دکمه در زمان ارسال */}
                   <PrimarySubmitButton
                     buttonText={
                       status === "sending" ? "Sending..." : "Submit request"
                     }
                   />
 
-                  {/* پیام‌های وضعیت */}
                   {status === "success" && (
                     <p className="text-sm font-medium text-green-600">
                       Message sent successfully! We'll be in touch.
                     </p>
                   )}
+
                   {status === "error" && (
                     <p className="text-sm font-medium text-red-600">
                       Oops! Something went wrong. Please try again.
