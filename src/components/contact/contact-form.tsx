@@ -1,7 +1,7 @@
+"use client";
+
 import { useState } from "react";
-
 import Image from "next/image";
-
 import PrimarySubmitButton from "../shared/button/primary-submit-button";
 
 export default function ContactForm() {
@@ -9,11 +9,9 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     setStatus("sending");
 
     const form = e.currentTarget;
-
     const formData = new FormData(form);
 
     try {
@@ -21,9 +19,7 @@ export default function ContactForm() {
         "https://formsubmit.co/ajax/ai@magnora.tech",
         {
           method: "POST",
-
           body: formData,
-
           headers: {
             Accept: "application/json",
           },
@@ -32,9 +28,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus("success");
-
         form.reset();
-
         setTimeout(() => setStatus(""), 5000);
       } else {
         setStatus("error");
@@ -52,7 +46,6 @@ export default function ContactForm() {
             <h2 className="font-sora text-sora-heading-4 md:text-sora-heading-3 lg:text-sora-heading-2 text-background-13/90 mx-auto max-w-[600px] font-normal">
               Reach out — We’ll get back within 24 hours
             </h2>
-
             <p
               data-text-reveal
               data-delay="0.2"
@@ -75,7 +68,6 @@ export default function ContactForm() {
                   >
                     Your name
                   </label>
-
                   <input
                     type="text"
                     id="name"
@@ -94,7 +86,6 @@ export default function ContactForm() {
                   >
                     Your email
                   </label>
-
                   <input
                     type="email"
                     id="email"
@@ -113,7 +104,6 @@ export default function ContactForm() {
                   >
                     Your message
                   </label>
-
                   <textarea
                     id="message"
                     name="message"
@@ -132,9 +122,7 @@ export default function ContactForm() {
                       required
                       aria-label="I accept with the Terms of uses and privacy policy"
                     />
-
                     <span className="border-stroke-3/18 peer-checked:border-background-13/60 after:bg-background-13/50 relative size-5 cursor-pointer rounded-[2px] border after:absolute after:top-1/2 after:left-1/2 after:size-3 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-[2px] after:opacity-0 peer-checked:after:opacity-100"></span>
-
                     <span className="text-tagline-3 text-background-13/60 peer-checked:text-background-13/90 font-medium select-none">
                       I accept with the Terms of uses and privacy policy
                     </span>
