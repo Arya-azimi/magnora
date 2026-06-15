@@ -71,7 +71,7 @@ export default function Hero() {
               >
                 <figure className="size-11 overflow-hidden rounded-lg">
                   <img
-                    src="./images/members/arya2.webp"
+                    src="./images/members/arya1.webp"
                     alt="Wade Warren, Marketing coordinator"
                     className="size-full object-cover"
                     itemProp="image"
@@ -100,7 +100,7 @@ export default function Hero() {
               >
                 <figure className="size-11 overflow-hidden rounded-lg">
                   <img
-                    src="./images/members/ehsan.webp"
+                    src="./images/members/ehsan1.webp"
                     alt="Wade Warren, Marketing coordinator"
                     className="size-full object-cover"
                     itemProp="image"
@@ -139,14 +139,14 @@ export default function Hero() {
                   <div className="flex items-center justify-end -space-x-3">
                     <figure className="size-9 overflow-hidden rounded-md ring-1 ring-white xl:size-11">
                       <img
-                        src="./images/members/arya2.webp"
+                        src="./images/members/arya1.webp"
                         alt="Development team member"
                         className="size-full object-cover"
                       />
                     </figure>
                     <figure className="size-9 overflow-hidden rounded-md ring-1 ring-white xl:size-11">
                       <img
-                        src="./images/members/ehsan.webp"
+                        src="./images/members/ehsan1.webp"
                         alt="Development team member"
                         className="size-full object-cover"
                       />
