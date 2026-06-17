@@ -10,9 +10,7 @@ export default function Hero() {
     >
       <div className="main-container">
         <div className="relative">
-          {/* content  */}
           <div className="space-y-14">
-            {/* text  */}
             <div className="space-y-4">
               <TextReveal delay={0.2}>
                 <h1
@@ -36,7 +34,6 @@ export default function Hero() {
                 </p>
               </TextReveal>
             </div>
-            {/* btn  */}
             <div data-delay="0.3" data-instant className="text-center">
               <LinkPrimary
                 button-text="Request a demo"
@@ -45,7 +42,6 @@ export default function Hero() {
               />
             </div>
           </div>
-          {/* img */}
           <figure
             data-delay="0.4"
             data-instant
@@ -60,11 +56,8 @@ export default function Hero() {
             </ScaleIn>
           </figure>
 
-          {/* card one (left) */}
-
           <div className="lp:left-[-2%] absolute top-[30%] left-[2%] hidden xl:block 2xl:left-[-7%]">
             <div className="relative h-[229px] w-[289px] rounded-3xl bg-white p-11">
-              {/* slice one  */}
               <div
                 className="bg-background-3 relative z-10 flex w-full max-w-[200px] rotate-6 items-center gap-x-4 rounded-xl p-2.5"
                 aria-label="Team member card"
@@ -93,7 +86,6 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* slice two */}
               <div
                 className="bg-background-3 absolute bottom-[52px] h-[62px] flex items-center w-full max-w-[200px] -rotate-8 rounded-xl p-2.5"
                 aria-hidden="true"
@@ -124,7 +116,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* card two (right)  */}
           <div
             className="lp:right-[2%] absolute top-[77%] right-[1%] hidden md:inline-block lg:top-[40%] xl:right-[5%] 2xl:right-[-6%]"
             role="complementary"
@@ -206,7 +197,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* card three  */}
           <figure className="lp:top-[60%] lp:left-[-2%] absolute top-[80%] left-[1%] hidden w-full max-w-[300px] overflow-hidden rounded-3xl md:inline-block lg:top-[60%] xl:max-w-[374px] 2xl:top-[56%] 2xl:left-[-3%]">
             <img
               src="./images/main2.webp"
