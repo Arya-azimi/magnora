@@ -11,7 +11,6 @@ interface DeepDiveResult {
 }
 
 export default async function DeepDivesHero() {
-  // گرفتن اطلاعات پروژه‌ها از جدول جدید
   const deepDives = await executeQuery<DeepDiveResult[]>({
     query:
       "SELECT id, slug, title, description, image_main, author FROM deep_dives ORDER BY created_at DESC",
@@ -53,7 +52,7 @@ export default async function DeepDivesHero() {
                 description={project.description}
                 image={project.image_main}
                 author={project.author}
-                pos="AI Engineer" // این رو دستی دادیم چون توی دیتابیس فعلاً نیست
+                pos="AI Engineer"
               />
             ))}
           </div>
