@@ -208,10 +208,11 @@ export function Footer() {
             <p className="text-tagline-4 font-normal text-white/50">
               &copy; <span>{new Date().getFullYear()}</span> MAGNORA. All rights
               reserved.
-              <Link href="https://www.linkedin.com/in/arya-azimi-862693416/">
-                DESIGNED BY ARYA AZIMI
-              </Link>
             </p>
+            <br />
+            <Link href="https://www.linkedin.com/in/arya-azimi-862693416/">
+              DESIGNED BY ARYA AZIMI
+            </Link>
           </div>
         </div>
       </div>
