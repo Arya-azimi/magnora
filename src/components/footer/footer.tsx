@@ -210,7 +210,10 @@ export function Footer() {
               reserved.
             </p>
             <br />
-            <Link href="https://www.linkedin.com/in/arya-azimi-862693416/">
+            <Link
+              className="text-tagline-4 font-normal text-white/50"
+              href="https://www.linkedin.com/in/arya-azimi-862693416/"
+            >
               DESIGNED BY ARYA AZIMI
             </Link>
           </div>
