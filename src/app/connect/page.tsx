@@ -6,43 +6,32 @@ import Link from "next/link";
 export default function ConnectPage() {
   return (
     <main className="relative flex h-[100dvh] w-full flex-col justify-between overflow-hidden bg-[#04070c]">
+      {/* --- Styles for High-Contrast Grid & Neon Buttons --- */}
       <style>{`
-        /* High-Contrast Grid */
         .dark-grid-bg {
           background-image: 
-            linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-          background-size: 45px 45px;
+            linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+          background-size: 40px 40px;
           background-position: center center;
         }
-
-        /* Ambient Light Waves */
         @keyframes waveAnimation {
           0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); opacity: 0.3; }
           50% { transform: translate(10% , 20%) rotate(180deg) scale(1.5); opacity: 0.8; }
           100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); opacity: 0.3; }
         }
         .wave-light-1 {
-          background: radial-gradient(circle, rgba(37,99,235,0.45) 0%, transparent 60%);
+          background: radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 60%);
           animation: waveAnimation 12s infinite ease-in-out;
         }
         .wave-light-2 {
-          background: radial-gradient(circle, rgba(14,165,233,0.35) 0%, transparent 60%);
+          background: radial-gradient(circle, rgba(14,165,233,0.25) 0%, transparent 60%);
           animation: waveAnimation 15s infinite ease-in-out reverse;
         }
-
-        /* Custom Gmail Button (Google Colors) */
         .gmail-btn {
-          position: relative;
-          border: 1px solid transparent;
           background: linear-gradient(#0a0f1c, #0a0f1c) padding-box,
                       linear-gradient(45deg, #4285F4, #EA4335, #FBBC05, #34A853) border-box;
-          box-shadow: 0 0 15px rgba(234, 67, 53, 0.15), 0 0 15px rgba(66, 133, 244, 0.15);
-        }
-        .gmail-btn:hover {
-          box-shadow: 0 0 25px rgba(234, 67, 53, 0.3), 0 0 25px rgba(66, 133, 244, 0.3);
-          background: linear-gradient(#0d1424, #0d1424) padding-box,
-                      linear-gradient(45deg, #4285F4, #EA4335, #FBBC05, #34A853) border-box;
+          border: 1px solid transparent;
         }
         .gmail-text {
           background: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05, #34A853);
@@ -51,24 +40,28 @@ export default function ConnectPage() {
         }
       `}</style>
 
-      <div className="absolute inset-0 z-0 bg-[#04070c]"></div>
-      <div className="wave-light-1 absolute left-0 top-0 z-0 h-[150%] w-[150%] origin-center mix-blend-screen"></div>
-      <div className="wave-light-2 absolute bottom-0 right-0 z-0 h-[120%] w-[120%] origin-center mix-blend-screen"></div>
-      <div className="dark-grid-bg absolute inset-0 z-0"></div>
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#04070c_100%)]"></div>
+      {/* --- Background Layers --- */}
+      <div className="absolute inset-0 -z-10 bg-[#04070c]"></div>
+      <div className="wave-light-1 absolute left-0 top-0 -z-10 h-[150%] w-[150%] origin-center mix-blend-screen"></div>
+      <div className="wave-light-2 absolute bottom-0 right-0 -z-10 h-[120%] w-[120%] origin-center mix-blend-screen"></div>
+      <div className="dark-grid-bg absolute inset-0 -z-10"></div>
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#04070c_100%)]"></div>
 
-      <div className="relative z-10 mt-10 px-6 text-center shrink-0">
-        <h1 className="font-sora text-5xl font-black tracking-tighter text-white drop-shadow-[0_0_15px_rgba(37,99,235,0.6)]">
+      {/* --- Header Section (Shrinks if needed) --- */}
+      <div className="relative z-10 shrink-0 pt-8 text-center sm:pt-10">
+        <h1 className="font-sora text-4xl font-black tracking-tighter text-white drop-shadow-[0_0_15px_rgba(37,99,235,0.5)] sm:text-5xl">
           Magnora<span className="text-blue-500">.</span>
         </h1>
-        <p className="font-inter-tight mt-2 text-sm font-medium tracking-wide text-slate-400">
+        <p className="font-inter-tight mt-1 text-xs font-medium tracking-wide text-slate-400 sm:text-sm">
           Intelligent AI Solutions.
         </p>
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col gap-6 px-6 py-6 md:flex-row">
-        <div className="group flex flex-1 flex-col items-center justify-center gap-4 rounded-[2rem] border border-white/20 bg-[#0a0f1c]/70 p-6 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all hover:border-blue-500/40 hover:bg-[#0a0f1c]/90 hover:shadow-[0_0_30px_rgba(37,99,235,0.2)]">
-          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-slate-600 shadow-inner transition-colors group-hover:border-blue-500 lg:h-28 lg:w-28">
+      {/* --- Centered Square Cards Section --- */}
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center gap-4 px-6 py-4 min-h-0 md:flex-row md:gap-8">
+        {/* Arya Card (Square) */}
+        <div className="group flex w-full max-w-[280px] flex-1 flex-col items-center justify-center gap-3 rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-5 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all max-h-[280px] hover:border-white/20 hover:bg-white/[0.04] hover:shadow-blue-900/20 sm:max-w-[320px] md:max-h-[350px]">
+          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-slate-700/50 shadow-inner transition-colors group-hover:border-blue-500/50 md:h-28 md:w-28">
             <Image
               src="/images/members/arya1.webp"
               alt="Arya Azimi"
@@ -77,24 +70,24 @@ export default function ConnectPage() {
             />
           </div>
           <div className="flex flex-col items-center">
-            <h2 className="font-sora text-xl font-bold tracking-wide text-white">
+            <h2 className="font-sora text-lg font-bold tracking-wide text-white md:text-xl">
               Arya Azimi
             </h2>
-            <p className="font-inter-tight mb-4 mt-1 text-[10px] font-bold uppercase tracking-widest text-blue-400 opacity-90">
+            <p className="font-inter-tight mb-3 mt-1 text-[10px] font-bold uppercase tracking-widest text-blue-400 opacity-90">
               Co-Founder | AI Eng
             </p>
             <div className="flex gap-4">
               <Link
                 href="https://github.com/Arya-azimi"
                 target="_blank"
-                className="flex size-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-slate-300 transition-all hover:border-white hover:bg-white hover:text-black"
+                className="flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition-all hover:bg-white hover:text-black"
               >
                 <GithubIcon />
               </Link>
               <Link
                 href="https://www.linkedin.com/in/arya-azimi-862693416/"
                 target="_blank"
-                className="flex size-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-slate-300 transition-all hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white"
+                className="flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition-all hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white"
               >
                 <LinkedinIcon />
               </Link>
@@ -102,8 +95,9 @@ export default function ConnectPage() {
           </div>
         </div>
 
-        <div className="group flex flex-1 flex-col items-center justify-center gap-4 rounded-[2rem] border border-white/20 bg-[#0a0f1c]/70 p-6 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all hover:border-cyan-500/40 hover:bg-[#0a0f1c]/90 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]">
-          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-slate-600 shadow-inner transition-colors group-hover:border-cyan-500 lg:h-28 lg:w-28">
+        {/* Ehsan Card (Square) */}
+        <div className="group flex w-full max-w-[280px] flex-1 flex-col items-center justify-center gap-3 rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-5 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all max-h-[280px] hover:border-white/20 hover:bg-white/[0.04] hover:shadow-cyan-900/20 sm:max-w-[320px] md:max-h-[350px]">
+          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-slate-700/50 shadow-inner transition-colors group-hover:border-cyan-500/50 md:h-28 md:w-28">
             <Image
               src="/images/members/ehsan1.webp"
               alt="Ehsan Firouzbakht"
@@ -112,24 +106,24 @@ export default function ConnectPage() {
             />
           </div>
           <div className="flex flex-col items-center">
-            <h2 className="font-sora text-xl font-bold tracking-wide text-white">
+            <h2 className="font-sora text-lg font-bold tracking-wide text-white md:text-xl">
               Ehsan Firouzbakht
             </h2>
-            <p className="font-inter-tight mb-4 mt-1 text-[10px] font-bold uppercase tracking-widest text-cyan-400 opacity-90">
+            <p className="font-inter-tight mb-3 mt-1 text-[10px] font-bold uppercase tracking-widest text-cyan-400 opacity-90">
               Co-Founder | Data Sci
             </p>
             <div className="flex gap-4">
               <Link
                 href="https://github.com/EhsanFiroozbakht"
                 target="_blank"
-                className="flex size-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-slate-300 transition-all hover:border-white hover:bg-white hover:text-black"
+                className="flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition-all hover:bg-white hover:text-black"
               >
                 <GithubIcon />
               </Link>
               <Link
                 href="https://www.linkedin.com/in/ehsan-firoozbakht-5456972a9"
                 target="_blank"
-                className="flex size-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-slate-300 transition-all hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white"
+                className="flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition-all hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white"
               >
                 <LinkedinIcon />
               </Link>
@@ -138,35 +132,34 @@ export default function ConnectPage() {
         </div>
       </div>
 
-      <div className="relative z-20 mt-auto shrink-0 w-full rounded-t-[2.5rem] border-t border-white/10 bg-[#0a0f1c]/90 p-6 pb-8 shadow-[0_-20px_50px_rgba(0,0,0,0.8)] backdrop-blur-3xl">
-        <div className="mx-auto grid w-full max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">
+      {/* --- Bottom Dock --- */}
+      <div className="relative z-20 mt-auto shrink-0 w-full rounded-t-[2.5rem] border-t border-white/10 bg-[#0a0f1c]/90 p-5 pb-8 shadow-[0_-20px_50px_rgba(0,0,0,0.8)] backdrop-blur-3xl sm:p-6 sm:pb-8">
+        <div className="mx-auto grid w-full max-w-4xl grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
           <Link
             href="tel:09104082056"
-            className="group flex items-center justify-center gap-2 rounded-2xl border border-orange-500/50 bg-orange-900/20 py-4 shadow-[0_0_15px_rgba(249,115,22,0.15)] transition-all hover:border-orange-400 hover:bg-orange-800/30 hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] active:scale-95 md:flex-col md:gap-2"
+            className="group flex items-center justify-center gap-2 rounded-2xl border border-orange-500/40 bg-orange-900/20 py-3.5 shadow-[0_0_15px_rgba(249,115,22,0.15)] transition-all hover:border-orange-400 hover:bg-orange-800/30 hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] active:scale-95 md:flex-col md:gap-2"
           >
             <PhoneIcon className="text-orange-400 transition-colors group-hover:text-orange-300" />
-            <span className="text-xs font-bold text-orange-400 transition-colors group-hover:text-orange-300 md:text-xs">
+            <span className="text-xs font-bold text-orange-400 transition-colors group-hover:text-orange-300">
               Call Us
             </span>
           </Link>
 
           <Link
             href="mailto:ai@magnora.tech"
-            className="gmail-btn group flex items-center justify-center gap-2 rounded-2xl py-4 transition-all active:scale-95 md:flex-col md:gap-2"
+            className="gmail-btn group flex items-center justify-center gap-2 rounded-2xl py-3.5 transition-all active:scale-95 md:flex-col md:gap-2"
           >
-            <MailIcon className="text-white group-hover:scale-110 transition-transform" />
-            <span className="gmail-text text-xs font-bold md:text-xs">
-              Email Us
-            </span>
+            <MailIcon className="text-white transition-transform group-hover:scale-110" />
+            <span className="gmail-text text-xs font-bold">Email Us</span>
           </Link>
 
           <Link
             href="https://t.me/magnoratech"
             target="_blank"
-            className="group flex items-center justify-center gap-2 rounded-2xl border border-blue-500/50 bg-blue-900/20 py-4 shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all hover:border-blue-400 hover:bg-blue-800/30 hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] active:scale-95 md:flex-col md:gap-2"
+            className="group flex items-center justify-center gap-2 rounded-2xl border border-blue-500/40 bg-blue-900/20 py-3.5 shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all hover:border-blue-400 hover:bg-blue-800/30 hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] active:scale-95 md:flex-col md:gap-2"
           >
-            <TelegramIcon className="text-blue-400 group-hover:text-blue-300 transition-colors" />
-            <span className="text-xs font-bold text-blue-400 group-hover:text-blue-300 transition-colors md:text-xs">
+            <TelegramIcon className="text-blue-400 transition-colors group-hover:text-blue-300" />
+            <span className="text-xs font-bold text-blue-400 transition-colors group-hover:text-blue-300">
               Telegram
             </span>
           </Link>
@@ -174,10 +167,10 @@ export default function ConnectPage() {
           <Link
             href="https://wa.me/989104082056"
             target="_blank"
-            className="group flex items-center justify-center gap-2 rounded-2xl border border-emerald-500/50 bg-emerald-900/20 py-4 shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all hover:border-emerald-400 hover:bg-emerald-800/30 hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] active:scale-95 md:flex-col md:gap-2"
+            className="group flex items-center justify-center gap-2 rounded-2xl border border-emerald-500/40 bg-emerald-900/20 py-3.5 shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all hover:border-emerald-400 hover:bg-emerald-800/30 hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] active:scale-95 md:flex-col md:gap-2"
           >
-            <WhatsappIcon className="text-emerald-400 group-hover:text-emerald-300 transition-colors" />
-            <span className="text-xs font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors md:text-xs">
+            <WhatsappIcon className="text-emerald-400 transition-colors group-hover:text-emerald-300" />
+            <span className="text-xs font-bold text-emerald-400 transition-colors group-hover:text-emerald-300">
               WhatsApp
             </span>
           </Link>
@@ -187,7 +180,7 @@ export default function ConnectPage() {
   );
 }
 
-// --- Icons (SVG Components - Adjusted for Styling) ---
+// --- Icons (SVG Components) ---
 function GithubIcon() {
   return (
     <svg
@@ -229,8 +222,8 @@ function PhoneIcon({ className = "" }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="22"
-      height="22"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -247,8 +240,8 @@ function MailIcon({ className = "" }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="22"
-      height="22"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       className={className}
@@ -271,7 +264,6 @@ function MailIcon({ className = "" }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-
       <path
         d="M2 7l4.5 2.85"
         stroke="#EA4335"
