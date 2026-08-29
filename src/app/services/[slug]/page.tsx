@@ -1,10 +1,10 @@
-import { executeQuery } from '@/lib/db';
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next'; 
-import TeamHero from '@/components/team/hero';
-import { delays, gridClasses } from '@/lib/constants/services-Card';
-import Link from 'next/link';
-import ServicesCard from '@/components/shared/card/services-card';
+import { executeQuery } from "@/lib/db";
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import TeamHero from "@/components/team/hero";
+import { delays, gridClasses } from "@/lib/constants/services-Card";
+import Link from "next/link";
+import ServicesCard from "@/components/shared/card/services-card";
 
 interface ServiceDetail {
   id: number;
@@ -14,11 +14,17 @@ interface ServiceDetail {
   content: string;
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
 
-  const services = await executeQuery<Pick<ServiceDetail, 'title' | 'description'>[]>({
-    query: 'SELECT title, description FROM services WHERE slug = ? LIMIT 1',
+  const services = await executeQuery<
+    Pick<ServiceDetail, "title" | "description">[]
+  >({
+    query: "SELECT title, description FROM services WHERE slug = ? LIMIT 1",
     values: [slug],
   });
 
@@ -26,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!service) {
     return {
-      title: 'Service Not Found | Magnora',
+      title: "Service Not Found | Magnora",
     };
   }
 
@@ -36,11 +42,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ServiceDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
 
   const services = await executeQuery<ServiceDetail[]>({
-    query: 'SELECT * FROM services WHERE slug = ? LIMIT 1',
+    query: "SELECT * FROM services WHERE slug = ? LIMIT 1",
     values: [slug],
   });
 
@@ -53,16 +63,23 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   return (
     <>
       <section className="lp:pb-39! pt-28 pb-20 md:pt-39 md:pb-28">
-      <div className="main-container">
-        <div 
-          data-opai-animate 
-          data-delay="0.1" 
-          className="service-details-markdown"
-          dangerouslySetInnerHTML={{ __html: service.content }} 
-        />
-      </div>
-    </section>
-    <TeamHero/>
+        <div className="main-container">
+          <div
+            data-opai-animate
+            data-delay="0.1"
+            className="service-details-markdown
+            [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-4 [&_h1]:text-center
+            [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h2]:text-center
+            [&_h3]:text-xl [&_h3]:font-medium [&_h3]:mt-4 [&_h3]:mb-2 
+            [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-gray-600 [&_p]:mb-4 [&_p]:text-justify
+            [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4
+          [&_a]:text-blue-600 [&_a]:underline
+            "
+            dangerouslySetInnerHTML={{ __html: service.content }}
+          />
+        </div>
+      </section>
+      <TeamHero />
     </>
   );
 }
