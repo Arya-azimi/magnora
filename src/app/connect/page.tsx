@@ -10,22 +10,22 @@ export default function ConnectPage() {
       <style>{`
         .dark-grid-bg {
           background-image: 
-            linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-          background-size: 40px 40px;
+            linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+          background-size: 45px 45px;
           background-position: center center;
         }
         @keyframes waveAnimation {
           0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); opacity: 0.3; }
-          50% { transform: translate(10% , 20%) rotate(180deg) scale(1.5); opacity: 0.8; }
+          50% { transform: translate(10% , 20%) rotate(180deg) scale(1.6); opacity: 0.9; }
           100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); opacity: 0.3; }
         }
         .wave-light-1 {
-          background: radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 60%);
+          background: radial-gradient(circle, rgba(37,99,235,0.45) 0%, transparent 60%);
           animation: waveAnimation 12s infinite ease-in-out;
         }
         .wave-light-2 {
-          background: radial-gradient(circle, rgba(14,165,233,0.25) 0%, transparent 60%);
+          background: radial-gradient(circle, rgba(14,165,233,0.35) 0%, transparent 60%);
           animation: waveAnimation 15s infinite ease-in-out reverse;
         }
         .gmail-btn {
@@ -40,18 +40,19 @@ export default function ConnectPage() {
         }
       `}</style>
 
-      {/* --- Background Layers --- */}
-      <div className="absolute inset-0 -z-10 bg-[#04070c]"></div>
-      <div className="wave-light-1 absolute left-0 top-0 -z-10 h-[150%] w-[150%] origin-center mix-blend-screen"></div>
-      <div className="wave-light-2 absolute bottom-0 right-0 -z-10 h-[120%] w-[120%] origin-center mix-blend-screen"></div>
-      <div className="dark-grid-bg absolute inset-0 -z-10"></div>
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#04070c_100%)]"></div>
+      {/* --- Background Layers (Fixed z-index to z-0) --- */}
+      <div className="absolute inset-0 z-0 bg-[#04070c]"></div>
+      <div className="wave-light-1 absolute left-0 top-0 z-0 h-[150%] w-[150%] origin-center mix-blend-screen"></div>
+      <div className="wave-light-2 absolute bottom-0 right-0 z-0 h-[120%] w-[120%] origin-center mix-blend-screen"></div>
+      <div className="dark-grid-bg absolute inset-0 z-0"></div>
+      {/* هاله تاریکی دور صفحه برای فوکوس روی مرکز */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,#04070c_120%)] pointer-events-none"></div>
 
-      {/* --- Centered Square Cards Section --- */}
+      {/* --- Centered Square Cards Section (Header Removed) --- */}
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center gap-4 px-6 py-4 min-h-0 md:flex-row md:gap-8">
         {/* Arya Card (Square) */}
-        <div className="group flex w-full max-w-[280px] flex-1 flex-col items-center justify-center gap-3 rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-5 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all max-h-[280px] hover:border-white/20 hover:bg-white/[0.04] hover:shadow-blue-900/20 sm:max-w-[320px] md:max-h-[350px]">
-          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-slate-700/50 shadow-inner transition-colors group-hover:border-blue-500/50 md:h-28 md:w-28">
+        <div className="group flex w-full max-w-[280px] flex-1 flex-col items-center justify-center gap-3 rounded-[2.5rem] border border-white/10 bg-[#0a0f1c]/70 p-5 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all max-h-[280px] hover:border-blue-500/40 hover:bg-[#0a0f1c]/90 hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] sm:max-w-[320px] md:max-h-[350px]">
+          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-slate-700/50 shadow-inner transition-colors group-hover:border-blue-500/80 md:h-28 md:w-28">
             <Image
               src="/images/members/arya1.webp"
               alt="Arya Azimi"
@@ -86,8 +87,8 @@ export default function ConnectPage() {
         </div>
 
         {/* Ehsan Card (Square) */}
-        <div className="group flex w-full max-w-[280px] flex-1 flex-col items-center justify-center gap-3 rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-5 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl transition-all max-h-[280px] hover:border-white/20 hover:bg-white/[0.04] hover:shadow-cyan-900/20 sm:max-w-[320px] md:max-h-[350px]">
-          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-slate-700/50 shadow-inner transition-colors group-hover:border-cyan-500/50 md:h-28 md:w-28">
+        <div className="group flex w-full max-w-[280px] flex-1 flex-col items-center justify-center gap-3 rounded-[2.5rem] border border-white/10 bg-[#0a0f1c]/70 p-5 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all max-h-[280px] hover:border-cyan-500/40 hover:bg-[#0a0f1c]/90 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)] sm:max-w-[320px] md:max-h-[350px]">
+          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-slate-700/50 shadow-inner transition-colors group-hover:border-cyan-500/80 md:h-28 md:w-28">
             <Image
               src="/images/members/ehsan1.webp"
               alt="Ehsan Firouzbakht"
