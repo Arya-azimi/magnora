@@ -47,16 +47,6 @@ export default function ConnectPage() {
       <div className="dark-grid-bg absolute inset-0 -z-10"></div>
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,transparent_0%,#04070c_100%)]"></div>
 
-      {/* --- Header Section (Shrinks if needed) --- */}
-      <div className="relative z-10 shrink-0 pt-8 text-center sm:pt-10">
-        <h1 className="font-sora text-4xl font-black tracking-tighter text-white drop-shadow-[0_0_15px_rgba(37,99,235,0.5)] sm:text-5xl">
-          Magnora<span className="text-blue-500">.</span>
-        </h1>
-        <p className="font-inter-tight mt-1 text-xs font-medium tracking-wide text-slate-400 sm:text-sm">
-          Intelligent AI Solutions.
-        </p>
-      </div>
-
       {/* --- Centered Square Cards Section --- */}
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center gap-4 px-6 py-4 min-h-0 md:flex-row md:gap-8">
         {/* Arya Card (Square) */}
